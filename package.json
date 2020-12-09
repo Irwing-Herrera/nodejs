@@ -2,7 +2,7 @@
   "name": "tabla-de-multiplicar",
   "version": "1.0.0",
   "description": "App de tablas de multiplicar del 1 al 10",
-  "main": "tareas.js",
+  "main": "pokemon.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "crear": "node tabla crear",
@@ -10,11 +10,13 @@
     "listar-tareas": "node tareas listar",
     "agregar-tarea": "node tareas crear -d='Pasear al gato'",
     "actualizar-tarea": "node tareas actualizar -d='Pasear al gato'",
-    "borrar-tarea": "node tareas borrar -d='Pasear al gato'"
+    "borrar-tarea": "node tareas borrar -d='Pasear al gato'",
+    "pokedex": "node pokemon listar -l=5"
   },
   "author": "Irwing Herrera",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.0",
     "colors": "^1.4.0",
     "yargs": "^16.2.0"
   },

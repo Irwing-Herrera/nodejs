@@ -22,6 +22,15 @@ npm run agregar-tarea
 npm run actualizar-tarea
 npm run borrar-tarea
 ```
+
+## Pokedex Console App
+Archivo: pokemon.js
+
+Esta es una aplicacion para pokedex
+
+```
+npm run pokedex
+```
 ## Comandos
 
 Ejecutar este comando
