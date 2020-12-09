@@ -2,9 +2,15 @@
   "name": "tabla-de-multiplicar",
   "version": "1.0.0",
   "description": "App de tablas de multiplicar del 1 al 10",
-  "main": "tabla.js",
+  "main": "tareas.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "crear": "node tabla crear",
+    "listar": "node tabla listar -t=1 -l=10",
+    "listar-tareas": "node tareas listar",
+    "agregar-tarea": "node tareas crear -d='Pasear al gato'",
+    "actualizar-tarea": "node tareas actualizar -d='Pasear al gato'",
+    "borrar-tarea": "node tareas borrar -d='Pasear al gato'"
   },
   "author": "Irwing Herrera",
   "license": "ISC",

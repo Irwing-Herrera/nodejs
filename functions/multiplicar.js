@@ -1,5 +1,4 @@
 const fs = require('fs');
-const colors = require('colors');
 
 let crearArchivo = () => {
   return new Promise((resolve, reject) => {
