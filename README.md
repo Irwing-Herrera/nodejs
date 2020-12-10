@@ -77,7 +77,7 @@ Desplegar en Heroku:
 heroku login
 heroku git:remote -a irwing-express-mongo
 git push heroku master
-heroku open // https://irwing-nodejs.herokuapp.com/
+heroku open // https://irwing-express-mongo.herokuapp.com/
 ```
 ## Comandos
 
