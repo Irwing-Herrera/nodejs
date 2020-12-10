@@ -40,14 +40,44 @@ Esta aplicacion es un servidor que mustra una pagina web sencilla y esta despleg
 Desplegar en Heroku:
 
 ```
+"start": "node server.js"  // Agregar en scripts para que este sea el primero que se despliegue en Heroku
 heroku login
 heroku git:remote -a irwing-nodejs
 git push heroku master
 heroku open // https://irwing-nodejs.herokuapp.com/
 ```
 
+## REST Server Docker MongoDB
+Archivo: restserver.js
+
+Instalacion de MongoDB en docker:
 ```
-npm start
+docker images                // Saber si tienes la imagen de mongo
+docker pull mongo:latest     // Instalar la imagen de mongo en su ultima version
+```
+
+Creacion de folder de mongo en docker
+```
+mkdir mongodb-docker
+cd mongodb-docker/
+```
+
+Correr Mongo en Docker:
+```
+docker run -d -p 2717:27017 -v ~/mongodb-docker:/data/db --name mymongo mongo:latest
+docker ps
+docker exec -it mymongo bash              // Acceder a linea de comandos de mongo
+> show dbs                                // Mostrar BDs
+```
+
+Desplegar en Heroku:
+
+```
+"start": "node server/serve.js"  // Agregar en scripts para que este sea el primero que se despliegue en Heroku
+heroku login
+heroku git:remote -a irwing-express-mongo
+git push heroku master
+heroku open // https://irwing-nodejs.herokuapp.com/
 ```
 ## Comandos
 
