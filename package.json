@@ -2,8 +2,9 @@
   "name": "tabla-de-multiplicar",
   "version": "1.0.0",
   "description": "App de tablas de multiplicar del 1 al 10",
-  "main": "pokemon.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "crear": "node tabla crear",
     "listar": "node tabla listar -t=1 -l=10",
@@ -18,6 +19,7 @@
   "dependencies": {
     "axios": "^0.21.0",
     "colors": "^1.4.0",
+    "express": "^4.17.1",
     "yargs": "^16.2.0"
   },
   "devDependencies": {}

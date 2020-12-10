@@ -31,6 +31,24 @@ Esta es una aplicacion para pokedex
 ```
 npm run pokedex
 ```
+
+## Node js Express HTTP Heroku
+Archivo: server.js
+
+Esta aplicacion es un servidor que mustra una pagina web sencilla y esta desplegada en Heroku
+
+Desplegar en Heroku:
+
+```
+heroku login
+heroku git:remote -a irwing-nodejs
+git push heroku master
+heroku open // https://irwing-nodejs.herokuapp.com/
+```
+
+```
+npm start
+```
 ## Comandos
 
 Ejecutar este comando
