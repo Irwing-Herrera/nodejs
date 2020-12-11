@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const _ = require('underscore');
 
 const Usuario = require('../models/usuario');
+const { verificarToken, verificarAdminRole } = require('../middlewares/autenticacion');
 
 const app = express();
 
@@ -10,7 +11,7 @@ app.get('/', function (req, res) {
   res.json('Irwing Docker Mongo')
 });
 
-app.get('/usuario', function (req, res) {
+app.get('/usuario', verificarToken, (req, res) => {
 
   let desde = Number(req.query.desde) || 0;
   let limit = Number(req.query.limit) || 3;
@@ -36,7 +37,7 @@ app.get('/usuario', function (req, res) {
     });
 });
 
-app.post('/usuario', function (req, res) {
+app.post('/usuario', [verificarToken, verificarAdminRole], (req, res) => {
   const body = req.body;
 
   let usuario = new Usuario({
@@ -62,7 +63,7 @@ app.post('/usuario', function (req, res) {
   });
 });
 
-app.put('/usuario/:id', function (req, res) {
+app.put('/usuario/:id', verificarToken, (req, res) => {
   let id = req.params.id;
   let body = _.pick(req.body, ['name', 'email', 'img', 'role', 'state']);
 
@@ -81,7 +82,7 @@ app.put('/usuario/:id', function (req, res) {
   });
 });
 
-app.delete('/usuario/:id', function (req, res) {
+app.delete('/usuario/:id', verificarToken, (req, res) => {
   let id = req.params.id;
 
   Usuario.findByIdAndUpdate(id, {

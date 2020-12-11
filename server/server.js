@@ -2,16 +2,17 @@ require('./config/config');
 
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const colors = require('colors');
 
 const app = express();
 
-const bodyParser = require('body-parser');
-
 // Middleware
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(require('./routes/usuario'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Configuracion global de rutas
+app.use(require('./routes/index'));
 
 mongoose.connect(process.env.URL_DB, {
   useNewUrlParser: true,
