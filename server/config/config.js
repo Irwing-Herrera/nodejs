@@ -16,7 +16,7 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
   urlDB = 'mongodb://localhost:2717/videojuegos';
 } else {
-  urlDB = 'mongodb+srv://irwing:5gLBEegYsrC7nMAF@cluster0.yr3gl.mongodb.net/videojuegos';
+  urlDB = process.env.MONGO_URI;
 }
 
 process.env.URL_DB = urlDB;
