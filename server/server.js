@@ -1,48 +1,24 @@
 require('./config/config');
 
 const express = require('express');
+const mongoose = require('mongoose');
+const colors = require('colors');
+
 const app = express();
 
 const bodyParser = require('body-parser');
-// parse application/x-www-form-urlencoded
+
+// Middleware
 app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
 app.use(bodyParser.json())
+app.use(require('./routes/usuario'));
 
-// Mandar a llamar la peticion con /
-app.get('/', function (req, res) {
-  res.json('Irwing Docker Mongo')
-});
-
-app.get('/usuario', function (req, res) {
-  res.json('Get Usuarios');
-});
-
-app.post('/usuario', function (req, res) {
-  const body = req.body;
-  if (body.nombre === undefined) {
-    res.status(400).json({
-      ok: false,
-      mensaje: 'El nombre es necesario.'
-    });
-  } else {
-    res.json({
-      persona: body
-    });
-  }
-});
-
-app.put('/usuario/:id', function (req, res) {
-  let id = req.params.id;
-
-  res.json({
-    peticion: 'Put Usuarios',
-    params: id
-  });
-});
-
-app.delete('/usuario', function (req, res) {
-  res.json('Delete Usuarios');
+mongoose.connect(process.env.URL_DB, {
+  useNewUrlParser: true,
+  useCreateIndex: true
+}, (error, response) => {
+  if(error) throw new Error(error);
+  console.log('Conexion a BD existosa!'.green);
 });
 
 app.listen(process.env.PORT, () => {
