@@ -16,7 +16,8 @@ app.use(require('./routes/index'));
 
 mongoose.connect(process.env.URL_DB, {
   useNewUrlParser: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology: true
 }, (error, response) => {
   if(error) throw new Error(error);
   console.log('Conexion a BD existosa!'.green);
